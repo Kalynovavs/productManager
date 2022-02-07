@@ -2,13 +2,16 @@ package ru.netology.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.netology.ProductManager;
+import ru.netology.manager.ProductManager;
+import ru.netology.repository.ProductRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
 
-    private ProductManager manager = new ProductManager();
+    private ProductRepository repo = new ProductRepository();
+
+    private ProductManager manager = new ProductManager(repo);
     private  Book first = new Book(1, "Бладшот", 120, "Онегин");
     private  Book second = new Book(2, "Вперед", 300, "Пушкин");
     private  Book third = new Book(3, "Отель", 5500, "Онегин");
@@ -20,7 +23,7 @@ class ProductManagerTest {
     private  Book nineth = new Book(9, "Водный мир", 700, "Толстой");
     private  Smartphone tenth = new Smartphone(10, "z3", 9500, "motorola");
     private  Smartphone eleventh = new Smartphone(11, "xperia", 8500, "sony");
-    private  Other uncnown = new Other();
+    private  Smartphone uncnown = new Smartphone(12, "", 0, "");
 
 
     @BeforeEach
